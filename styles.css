@@ -1,0 +1,1171 @@
+/* Base styles */
+:root {
+    --primary-yellow: #fbbf24;
+    --accent-black: #1a1a1a;
+    --text-light: #f3f4f6;
+    --text-dark: #000;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--text-light);
+    background-color: var(--accent-black);
+  }
+  
+  /* Navigation */
+  .navbar {
+    background-color: rgb(31, 25, 25, 0.6); /* Semi-transparent black */
+    position: fixed; /* Floating navigation bar */
+    top: 15px; /* Slight offset from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center positioning adjustment */
+    width: 90%; /* Slightly narrower than full width for floating effect */
+    z-index: 1000;
+    padding: 25px 30px; /* Increased padding for more space from the edges */
+    display: flex;
+    justify-content: center;
+    border-radius: 70px; /* Rounded edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    backdrop-filter: blur(10px); /* Glass effect for a modern look */
+  }
+  
+  
+  /* Navigation Content */
+  .nav-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Align navigation items to the center */
+    align-items: center;
+    padding: 0 30px; /* Horizontal padding for spacing */
+  }
+  
+  .nav-links-container {
+    display: flex;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 4rem; /* Spacing between links */
+  }
+  
+  .nav-links a {
+    color: var(--text-light); /* Light text for contrast */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem; /* Readable font size */
+    padding: 10px 20px; /* Adjusted padding for better vertical alignment */
+    border-radius: 30px; /* Slightly rounded links */
+    line-height: 1; /* Ensure text height does not affect alignment */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horizontally center text */
+    align-items: center; /* Vertically center text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transitions */
+  }
+  
+  /* Hover Effect */
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #000; /* Change text color to black */
+    background-color: 
+      #bc913f; /* Highlight background */
+  }
+  
+  
+  
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://smoothcomp.com/pictures/t/3433164-jxp3/kuma-team.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.7));
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  
+  
+  /* Button Styles */
+  /* Button Base Styling */
+  .join-now-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #fbbf24;
+    font-family: Arial, sans-serif;
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: bold;
+    padding: clamp(10px, 1.5vw, 12px) clamp(15px, 2vw, 20px);
+    border: 2px solid #fbbf24;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Ensure it does not get clipped when scaling */
+    transform-origin: center; /* Ensure button scales from the center */
+  }
+  
+  /* Icon inside the button */
+  .join-now-button svg {
+    width: clamp(16px, 1.5vw, 20px);
+    height: clamp(16px, 1.5vw, 20px);
+    transition: transform 0.3s ease;
+  }
+  
+  
+  /* Pulse Effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 10px 12px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  /* Hover Effects */
+  .join-now-button:hover {
+    background-color: #000;
+    color: #fbbf24;
+    border-color: #fbbf24;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  /* Hover Effects for SVG Icon */
+  .join-now-button:hover svg {
+    transform: translateX(10px); /* Smooth horizontal movement */
+  }
+  
+  /* Active Effects */
+  .join-now-button:active {
+    background-color: transparent;
+    color: #fbbf24;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px); /* Button depresses slightly */
+  }
+  
+  
+  /* Action Button */
+  .action-button {
+    background-color: #bc913f;
+    border: none;
+    padding: clamp(8px, 1vw, 10px) clamp(15px, 2vw, 20px);
+    border-radius: 8px;
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #ffe066;
+    transform: scale(1.05);
+  }
+  
+  
+  /* General Section Styling */
+  .hero-section {
+    padding: 2rem;
+    text-align: center;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0;
+  }
+  
+  /* Cards Container */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0 0 0; /* Reduce top margin, remove bottom margin */
+    padding: 0;
+  }
+  
+  /* Individual Card */
+  .card {
+    background-color: transparent;
+    border-radius: 10px;
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 0; /* Remove extra space between cards */
+    padding: 0; /* Remove extra padding */
+  }
+  
+
+  /* Hover effect */
+  .card:hover {
+    transform: scale(1.08); /* Slightly scale the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Darker shadow on hover */
+  }
+
+
+
+  
+  /* Image Styling */
+  .coach-image {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Card Content */
+  .card-content {
+    padding: 20px 10px; /* Reduce vertical padding */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content to the top */
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(31, 25, 25, 0.3);
+    color: #bc913f;
+    flex-grow: 1;
+  }
+
+  
+
+  
+  .learn-more-button:hover {
+    background-color: #a57f33;
+  }
+  
+  /* Heading */
+  h2 {
+    font-size: 2rem;
+    color: #bc913f;
+    margin-bottom: 1rem;
+  }
+  
+  
+  /* Action Button Styling */
+  .learn-more-button {
+    padding: 10px 20px;
+    background-color: #1f1919; /* Highlight background on hover */
+    color: #fbbf24; /* Change text color on hover */
+    
+    font-weight: bold;
+    border: 1px solid #fbb24a;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .learn-more-button:hover {
+    background-color: #bc913f; /* Dark purple button */
+    color: rgb(31, 25, 25, 1);
+    transform: scale(1.1); /* Slight scale effect on hover */
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    .coach-cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  
+  
+  /* Reviews Section */
+ /* Reviews Section */
+.reviews {
+    padding: 60px 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .reviews h2 {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    margin-bottom: 40px;
+    color: #bc913f;
+    font-weight: bold;
+  }
+  
+  /* Container for reviews */
+  .reviews-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 2rem; /* Space between review cards */
+    margin-top: 20px;
+    padding: 0 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Review card styling */
+  .review-card {
+    background-color: #252525;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Align content inside cards to the left */
+  }
+  
+  /* Card hover effect */
+  .review-card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .reviews-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .reviews-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .reviews-container {
+      grid-template-columns: 1fr; /* 1 card per row */
+    }
+  }
+  
+  
+  .review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .review-header h3 {
+    color: #fbbf24;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    color: #fbbf24;
+    font-size: 1.5rem;
+  }
+  
+  
+  
+  /* Pulse animation for the stars */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1); /* Slightly enlarge the stars */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Apply the pulse animation to the stars */
+  .star {
+    display: inline-block; /* Ensure stars are inline-block to be affected by transform */
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  /* Prevent animation on hover to avoid interaction with review card hover */
+  .review-card:hover .star {
+    animation: none;
+  }
+  
+  
+  
+  /* Footer Section */
+  .footer-section {
+    background-color: #1a1a1a;
+    color: #999999;
+    padding: clamp(20px, 3vw, 40px);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 1.5vw, 20px);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: clamp(15px, 2vw, 20px);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links li {
+    position: relative;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #999999;
+    font-size: clamp(12px, 1.2vw, 14px);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    padding: 5px;
+  }
+  
+  .footer-links a:hover {
+    color: #ffc107;
+    transform: translateY(-2px);
+  }
+  
+  .footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffc107;
+    transition: width 0.3s ease;
+  }
+  
+  .footer-links a:hover::after {
+    width: 100%;
+  }
+  
+  .footer-copyright {
+    font-size: clamp(11px, 1vw, 12px);
+    color: #666666;
+    margin-top: clamp(8px, 1vw, 10px);
+  }
+  
+  /* Animations */
+  /* Features Content */
+  .features {
+    padding: 40px 0;
+    background-color: #1a1a1a; /* Dark background */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    
+  }
+  
+  .features:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Features Container */
+  .features-animated {
+    display: flex;
+    gap: 20px; /* Space between feature blocks */
+    justify-content: center; /* Center the blocks within the container */
+    align-items: center; /* Center the blocks vertically */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Optional: to control the maximum width of the content */
+    padding: 0 20px; /* Optional: to add space on the sides */
+  }
+  
+  
+  /* Additional page content styles */
+  .page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 1rem 4rem;
+  }
+  
+  .page-content h1 {
+    color: #bc913f;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  
+  /* Contact Us Section */
+  .contact-us {
+    background-color: #1a1a1a;
+    color: #f3f4f6;
+    padding: 60px 20px;
+    text-align: center;
+    border: 2px solid var(--primary-yellow); /* Added yellow border around the whole section */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgb(210, 179, 25, 0.5);
+    max-width: 65%; /* Section takes up 65% of the page width */
+    margin: 0 auto; /* Center the section horizontally */
+    font-family: Arial, sans-serif; /* Apply custom font here */
+  }
+  
+  .contact-header h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-yellow);
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #252525;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid var(--primary-yellow); /* Highlighted border for the form */
+    box-shadow: 0 4px 8px rgb(210, 179, 25, 0.3);
+    font-family: Arial, sans-serif; /* Apply custom font here */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .form-group label {
+    display: block;
+    text-align: left;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif; /* Apply custom font here */
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: Arial, sans-serif; /* Apply custom font here */
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--primary-yellow);
+    outline: none;
+    box-shadow: 0 0 5px rgba(251, 191, 36, 0.7);
+  }
+  
+  /* Button Styling */
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #1f1919; /* Highlight background on hover */
+    color: #fbbf24; /* Change text color on hover */
+    
+    font-weight: bold;
+    border: 1px solid #fbb24a;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .submit-button:hover {
+    background-color: #bc913f; /* Dark purple button */
+    color: rgb(31, 25, 25, 1);
+    transform: scale(1.1); /* Slight scale effect on hover */
+  }
+  
+  .submit-button:active {
+    background-color: #000;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    border-color: #fbbf24; /* Ensure active border color matches the button */
+    color: #fbbf24
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .contact-us {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Responsive Design: Make sure the form adapts to smaller screen sizes */
+  @media (max-width: 768px) {
+    .contact-us {
+      max-width: 80%; /* 90% width on smaller screens */
+      padding: 40px 15px;
+    }
+  
+    .contact-form {
+      padding: 30px;
+    }
+  
+    .contact-header h2 {
+      font-size: 2rem; /* Smaller header for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-us {
+      max-width: 100%; /* Full width on very small screens */
+      padding: 30px 10px;
+    }
+  
+    .contact-form {
+      padding: 20px;
+    }
+  
+    .contact-header h2 {
+      font-size: 1.8rem; /* Smaller header */
+    }
+  }
+  
+  /* Specific to Schedule Table */
+  .schedule-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Center the table */
+    align-items: center;
+    flex-direction: column; /* Ensure title is above the table */
+  }
+  
+  .schedule-title {
+    color: #fbb24a; /* Yellow text for the title */
+    font-size: 2rem;
+    margin-bottom: 20px; /* Add space below the title */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #000; /* Dark background for the table */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: tableAppear 1s ease-out;
+    transform: scale(1); /* Default scale */
+  }
+  
+  /* Header Styling */
+  .schedule-table th, .schedule-table td {
+    padding: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid #444;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Header Styling */
+  .schedule-table th {
+    background-color: #171412; /* Black background for header */
+    color: #fbb24a; /* Yellow text for header */
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  
+  .schedule-table td {
+    background-color: #222; /* Dark cell background */
+    color: #fbb24a; /* Yellow text color */
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  /* Hover Effect for Individual Cells */
+  .schedule-table td:hover {
+    background-color: #fbb24a;
+    color: #000;
+    transform: scale(1.05);
+  }
+  
+  /* Fade-in Effect for Table Appearance */
+  @keyframes tableAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Remove Saturday Column from Table */
+  .schedule-table th:nth-child(7),
+  .schedule-table td:nth-child(7) {
+    display: none;
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .schedule-table th, .schedule-table td {
+      padding: 10px;
+      font-size: 1rem;
+    }
+  
+    .schedule-container {
+      padding: 15px;
+    }
+  
+    /* Scale down the table */
+    .schedule-table {
+      transform: scale(0.9); /* Scale down the table */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .schedule-table th, .schedule-table td {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    .schedule-container {
+      padding: 10px;
+    }
+  
+    /* Further scale down the table */
+    .schedule-table {
+      transform: scale(0.8); /* Further scale down the table */
+    }
+  }
+  
+  
+  
+  /* Animation */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  
+  /* Continuous Pop-Up Animation */
+  @keyframes popUp {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05); /* Slightly scale up */
+    }
+    100% {
+      transform: scale(1); /* Return to original scale */
+    }
+  }
+  
+  /* Icons */
+  .icon {
+    font-size: 1.5rem;
+    color: #fbb24a;
+  }
+  
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes zoomIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-horizontal {
+      flex-direction: column;
+    }
+  
+    .achievements-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
+    }
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #fcd34d, #fde68a, #fbbf24);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 5s infinite;
+    text-align: center;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  /* Pricing Section Styling */
+  .pricing-container {
+    max-width: 1000px;
+    margin: 0 auto; /* Centers the container horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content within the container */
+    gap: 15px; /* Increased gap between rows */
+    animation: fadeIn 1.2s ease-out;
+  }
+  
+  /* Individual Pricing Row */
+  .pricing-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the rows within the container */
+    gap: 100px; /* Increased gap between blocks */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .pricing-row:nth-child(1) { animation-delay: 0.2s; }
+  .pricing-row:nth-child(2) { animation-delay: 0.4s; }
+  .pricing-row:nth-child(3) { animation-delay: 0.6s; }
+  .pricing-row:nth-child(4) { animation-delay: 0.8s; }
+  
+  /* Reverse Layout for Alternating Rows */
+  .pricing-row.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  /* Pricing Block Styling */
+  .pricing-block {
+    flex: 1;
+    padding: 40px 150px; /* Spacious padding inside the blocks */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center; /* Centers the content inside the blocks */
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 200px; /* Unified height for all blocks */
+    max-width: 500px; /* Wider blocks */
+  }
+  
+  .pricing-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Big Months Block */
+  .pricing-block.months {
+    background-color: #0a0a0a;
+    color: #fbb24a;
+    font-size: 1.8rem; /* Large text for months */
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  /* Pricing Details Block */
+  .pricing-block.details {
+    background-color: #1a1a1a;
+    color: #fbb24a;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Increased gap between details inside the block */
+    justify-content: center; /* Centers details vertically */
+    align-items: center; /* Centers details horizontally */
+  }
+  
+  /* Buy Now Button */
+  .buy-now-btn {
+    padding: 15px 30px; /* Larger button padding */
+    font-size: 1.2rem; /* Larger button text */
+    font-weight: 700;
+    color: #fbb24a;
+    background-color: transparent;
+    border: 1px solid #fbb24a;
+    border-radius: 6px; /* Slightly larger radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buy-now-btn:hover {
+    background-color: #fbb24a;
+    color: #1a1a1a;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Global keyframes for animations */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Default animation properties */
+  .animated {
+    opacity: 0; /* Hidden state before animation */
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-name: FadeIn; /* Use the correct animation name */
+  }
+  
+  /* Example animation definition */
+  @keyframes FadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Optional: to animate the position */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Final position */
+    }
+  }
+  
+  
+  /* Example animations for specific classes */
+  .hero-content,
+  .hero-overlay {
+    animation-name: fadeInUp;
+  }
+  
+  .navbar {
+    animation-name: fadeIn;
+  }
+  
+  .card {
+    animation-name: slideInLeft;
+  }
+  
+  .reviews-container {
+    animation-name: fadeInUp;
+  }
+  
+  .review-card {
+    animation-name: slideInRight;
+  }
+  
+  .contact-us,
+  .contact-form {
+    animation-name: fadeInUp;
+  }
+  
+  .features-animated > div {
+    animation-name: slideInLeft;
+  }
+  
+  /* General animations for all page elements */
+  .page-content,
+  .schedule-title,
+  .schedule-table,
+  .footer-container,
+  .footer-links {
+    animation-name: fadeInUp;
+  }
+  
+  /* Smooth transition for animations on scroll */
+  .animated.visible {
+    opacity: 1; /* Set to visible */
+  }
+  
+  /* Class to be added when the element enters the viewport */
+  .animated.in-view {
+    animation-name: FadeIn;
+    opacity: 1; /* Ensure the element becomes visible */
+  }
+  
+  /* Payment Menu Styles */
+.payment-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .payment-menu .menu-content {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fbb24a;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .payment-menu .menu-content h2 {
+    color: #bc913f;
+    margin-bottom: 20px;
+  }
+  
+  .payment-menu .menu-content p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  .payment-menu .menu-content form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .payment-menu .menu-content form input,
+  .payment-menu .menu-content form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #bc913f;
+    border-radius: 8px;
+    background-color: #252525;
+    color: #fff;
+  }
+  
+  .payment-menu .menu-content form .submit-button {
+    padding: 10px 20px;
+    background-color: #1f1919; /* Highlight background on hover */
+    color: #fbbf24; /* Change text color on hover */
+    font-weight: bold;
+    border: 1px solid #fbb24a;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .payment-menu .menu-content form .submit-button:hover {
+    background-color: #bc913f; /* Dark purple button */
+    color: rgb(31, 25, 25, 1);
+  }
+
+
+ 
+  
+  .payment-menu .close-button {
+    position: absolute;
+    top: 90px;
+    right: 440px;
+    font-size: 4rem;
+    cursor: pointer;
+    color: #fbb24a;
+  }
+  
